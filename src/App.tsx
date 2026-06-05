@@ -82,7 +82,7 @@ function App() {
             <div className="hero-badge">Official Information Portal</div>
             <h1 className="hero-title">
               Your Complete Guide to <br />
-              <span>Trexis Platform</span>
+              <span>TrexisPlatform</span>
             </h1>
             <p className="hero-desc">
               Find every detail, rule, and reward structure right here. Everything you need to know about our premium signal tiers, referral rewards, and manager payouts in one place.
