@@ -9,6 +9,7 @@ import InfoHub from './components/InfoHub';
 import AboutUs from './components/AboutUs';
 import LiveReviews from './components/LiveReviews';
 import FAQSection from './components/FAQSection';
+import TelegramWidget from './components/TelegramWidget';
 import './index.css';
 
 function App() {
@@ -26,8 +27,9 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      {/* Live Wallpaper Background */}
+    <>
+      <div className="app-container">
+        {/* Live Wallpaper Background */}
       <div className="live-wallpaper">
         <div className="ambient-orb orb-1"></div>
         <div className="ambient-orb orb-2"></div>
@@ -130,28 +132,28 @@ function App() {
 
           <motion.div className="grid-3" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {[
-              { price: 500, name: "Standard Account", welcome: 15, referral: 25, team: 80, salary: 100, basicSignals: 2, extraSignals: 2, extraDays: 1, popular: false },
-              { price: 800, name: "Pro Account", welcome: 30, referral: 50, team: 200, salary: 200, basicSignals: 3, extraSignals: 2, extraDays: 2, popular: true },
-              { price: 1000, name: "Elite Account", welcome: 50, referral: 80, team: 300, salary: 300, basicSignals: 4, extraSignals: 3, extraDays: 3, popular: false },
-              { price: 1500, name: "VIP Account", welcome: 75, referral: 120, team: 500, salary: 500, basicSignals: 5, extraSignals: 3, extraDays: 5, popular: false },
-              { price: 2000, name: "Master Account", welcome: 100, referral: 160, team: 700, salary: 700, basicSignals: 6, extraSignals: 4, extraDays: 7, popular: false },
-              { price: 3000, name: "Legend Account", welcome: 150, referral: 250, team: 1000, salary: 1000, basicSignals: 8, extraSignals: 4, extraDays: 14, popular: false }
+              { price: 500, name: "Standard Account", welcome: 15, referral: 25, team: 80, salary: 100, basicSignals: 2, extraSignals: 2, extraDays: 1, popular: false, color: '#cbd5e1', rgb: '203, 213, 225' },
+              { price: 800, name: "Pro Account", welcome: 30, referral: 50, team: 200, salary: 200, basicSignals: 3, extraSignals: 2, extraDays: 2, popular: true, color: '#fbbf24', rgb: '251, 191, 36' },
+              { price: 1000, name: "Elite Account", welcome: 50, referral: 80, team: 300, salary: 300, basicSignals: 4, extraSignals: 3, extraDays: 3, popular: false, color: '#a855f7', rgb: '168, 85, 247' },
+              { price: 1500, name: "VIP Account", welcome: 75, referral: 120, team: 500, salary: 500, basicSignals: 5, extraSignals: 3, extraDays: 5, popular: false, color: '#ef4444', rgb: '239, 68, 68' },
+              { price: 2000, name: "Master Account", welcome: 100, referral: 160, team: 700, salary: 700, basicSignals: 6, extraSignals: 4, extraDays: 7, popular: false, color: '#10b981', rgb: '16, 185, 129' },
+              { price: 3000, name: "Legend Account", welcome: 150, referral: 250, team: 1000, salary: 1000, basicSignals: 8, extraSignals: 4, extraDays: 14, popular: false, color: '#06b6d4', rgb: '6, 182, 212' }
             ].map((plan, i) => (
-              <motion.div key={i} className="card plan-card" variants={fadeIn} style={{ padding: '1.5rem', borderColor: plan.popular ? 'rgba(251, 191, 36, 0.4)' : undefined, background: plan.popular ? 'rgba(251, 191, 36, 0.05)' : undefined }}>
-                {plan.popular && <div className="badge">Most Popular</div>}
+              <motion.div key={i} className="card plan-card" variants={fadeIn} style={{ padding: '1.5rem', borderColor: `rgba(${plan.rgb}, 0.4)`, background: `rgba(${plan.rgb}, 0.05)` }}>
+                {plan.popular && <div className="badge" style={{ background: `rgba(${plan.rgb}, 0.15)`, color: plan.color, border: `1px solid rgba(${plan.rgb}, 0.3)` }}>Most Popular</div>}
                 
                 <div className="card-header" style={{ marginBottom: '1rem', gap: '1rem' }}>
-                  <div className="icon-wrap" style={{ width: '42px', height: '42px', color: plan.popular ? 'var(--accent-gold)' : undefined, background: plan.popular ? 'rgba(251,191,36,0.1)' : undefined, borderColor: plan.popular ? 'rgba(251,191,36,0.3)' : undefined }}>
+                  <div className="icon-wrap" style={{ width: '42px', height: '42px', color: plan.color, background: `rgba(${plan.rgb}, 0.1)`, borderColor: `rgba(${plan.rgb}, 0.3)` }}>
                     {plan.popular ? <Trophy size={20} /> : <ShieldCheck size={20} />}
                   </div>
                   <div>
-                    <div style={{ color: plan.popular ? 'var(--accent-gold)' : 'var(--primary-light)', fontWeight: 600, letterSpacing: '1px', fontSize: '0.75rem' }}>TIER {i + 1}</div>
+                    <div style={{ color: plan.color, fontWeight: 600, letterSpacing: '1px', fontSize: '0.75rem' }}>TIER {i + 1}</div>
                     <h3 style={{ fontSize: '1.2rem', color: 'white' }}>{plan.name}</h3>
                   </div>
                 </div>
 
                 <div className="plan-price-wrap" style={{ margin: '0 0 1rem 0', paddingBottom: '1rem' }}>
-                  <div className="plan-price" style={{ fontSize: '2.5rem', color: plan.popular ? 'var(--accent-gold)' : 'white' }}>${plan.price}+ <span style={{ fontSize: '0.85rem' }}>Deposit</span></div>
+                  <div className="plan-price" style={{ fontSize: '2.5rem', color: plan.color }}>${plan.price}+ <span style={{ fontSize: '0.85rem' }}>Deposit</span></div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
@@ -165,10 +167,10 @@ function App() {
                 </div>
 
                 <div className="info-list" style={{ marginTop: 'auto', gap: '0.75rem' }}>
-                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.popular ? "var(--accent-gold)" : "white"} style={{flexShrink:0}} /><div><strong style={{color: plan.popular ? 'var(--accent-gold)' : 'white'}}>Welcome Bonus:</strong> ${plan.welcome}</div></div>
-                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.popular ? "var(--accent-gold)" : "white"} style={{flexShrink:0}} /><div><strong style={{color: plan.popular ? 'var(--accent-gold)' : 'white'}}>Referral Reward:</strong> ${plan.referral}</div></div>
-                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.popular ? "var(--accent-gold)" : "white"} style={{flexShrink:0}} /><div><strong style={{color: plan.popular ? 'var(--accent-gold)' : 'white'}}>Team Event (3 Members):</strong> ${plan.team}</div></div>
-                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.popular ? "var(--accent-gold)" : "white"} style={{flexShrink:0}} /><div><strong style={{color: plan.popular ? 'var(--accent-gold)' : 'white'}}>Monthly Salary:</strong> ${plan.salary}</div></div>
+                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Welcome Bonus:</strong> ${plan.welcome}</div></div>
+                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Referral Reward:</strong> ${plan.referral}</div></div>
+                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Team Event (3 Members):</strong> ${plan.team}</div></div>
+                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Monthly Salary:</strong> ${plan.salary}</div></div>
                 </div>
               </motion.div>
             ))}
@@ -342,54 +344,11 @@ function App() {
           &copy; {new Date().getFullYear()} TrexisPlatform Info. All rights reserved.
         </div>
       </footer>
+      </div>
 
-      {/* Floating Telegram Support Button */}
-      <a 
-        href="https://t.me/Morganjim" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          position: 'fixed',
-          bottom: '2rem',
-          right: '2rem',
-          width: '60px',
-          height: '60px',
-          zIndex: 9999,
-          cursor: 'pointer',
-          textDecoration: 'none',
-          transition: 'transform 0.3s ease, filter 0.3s ease',
-          filter: 'drop-shadow(0 10px 20px rgba(42, 171, 238, 0.4))'
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1) translateY(-5px)';
-          e.currentTarget.style.filter = 'drop-shadow(0 15px 30px rgba(42, 171, 238, 0.6))';
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.transform = 'scale(1) translateY(0)';
-          e.currentTarget.style.filter = 'drop-shadow(0 10px 20px rgba(42, 171, 238, 0.4))';
-        }}
-        aria-label="Contact Support on Telegram"
-      >
-        {/* Authentic Telegram Icon SVG */}
-        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#2AABEE"/>
-          <path fillRule="evenodd" clipRule="evenodd" d="M5.42512 11.8703C8.69466 10.4468 10.8781 9.50596 11.9754 9.04771C15.1105 7.73873 15.7621 7.51187 16.1837 7.50436C16.2764 7.5027 16.4839 7.52565 16.619 7.63581C16.7331 7.7288 16.7646 7.85434 16.7801 7.94276C16.7955 8.03118 16.8148 8.23243 16.7994 8.3897C16.6271 10.1843 15.881 14.5752 15.4996 16.6041C15.3382 17.4623 15.0211 17.7508 14.7144 17.779C14.0456 17.8407 13.5323 17.3315 12.8778 16.9029C11.8543 16.2327 11.2751 15.8166 10.2809 15.16C9.13175 14.4011 9.87635 13.9845 10.5317 13.3033C10.7032 13.1249 13.6874 10.4137 13.7451 10.1666C13.7523 10.1356 13.7588 10.0203 13.6914 9.96041C13.6241 9.9005 13.5235 9.92131 13.4568 9.93633C13.3622 9.95764 11.8797 10.9405 8.9288 12.936C8.49605 13.2335 8.10657 13.3776 7.7663 13.3699C7.39116 13.3615 6.6631 13.1557 6.12061 12.9793C5.41165 12.7487 4.86697 12.619 4.91428 12.217C4.93892 12.0076 5.1092 11.7946 5.42512 11.8703Z" fill="white"/>
-        </svg>
-        
-        {/* Notification dot */}
-        <span style={{
-          position: 'absolute',
-          top: '-2px',
-          right: '-2px',
-          background: '#ef4444',
-          width: '16px',
-          height: '16px',
-          borderRadius: '50%',
-          border: '3px solid #0f172a',
-          boxSizing: 'border-box'
-        }} />
-      </a>
-    </div>
+      {/* Floating Telegram Support Widget */}
+      <TelegramWidget />
+    </>
   );
 }
 
