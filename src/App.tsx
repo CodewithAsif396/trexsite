@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Trophy, Users, Clock, ChefHat, 
   CheckCircle2, ShieldCheck, Crown, Menu, X, 
-  Activity, Lock, RefreshCw, MessageCircle
+  Activity, Lock, RefreshCw
 } from 'lucide-react';
 import InfoHub from './components/InfoHub';
 import AboutUs from './components/AboutUs';
@@ -376,7 +376,10 @@ function App() {
         }}
         aria-label="Contact Support on Telegram"
       >
-        <MessageCircle size={32} />
+        {/* Telegram Icon SVG */}
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.48 15.84 14.34 15.5 16.12C15.35 16.87 15.08 17.12 14.82 17.15C14.26 17.2 13.82 16.78 13.28 16.43C12.44 15.88 11.96 15.54 11.14 15C10.21 14.4 10.82 14.07 11.36 13.52C11.5 13.38 13.91 11.18 13.96 10.97C13.96 10.94 13.97 10.82 13.89 10.76C13.82 10.7 13.71 10.72 13.63 10.74C13.51 10.77 11.66 11.99 8.04 14.43C7.51 14.79 7.03 14.96 6.6 14.95C6.13 14.94 5.22 14.68 4.54 14.46C3.71 14.19 3.06 14.05 3.12 13.58C3.15 13.34 3.49 13.09 4.13 12.83C8.07 11.11 10.69 10.02 12.01 9.47C15.79 7.9 16.57 7.63 17.08 7.63C17.19 7.63 17.44 7.66 17.61 7.8C17.75 7.92 17.79 8.09 17.81 8.22C17.8 8.26 17.81 8.56 17.79 8.8Z" fill="white"/>
+        </svg>
         
         {/* Notification dot */}
         <span style={{
