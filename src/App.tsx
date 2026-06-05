@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Trophy, Users, Clock, ChefHat, 
   CheckCircle2, ShieldCheck, Crown, Menu, X, 
-  Activity, Lock, RefreshCw 
+  Activity, Lock, RefreshCw, MessageCircle
 } from 'lucide-react';
 import InfoHub from './components/InfoHub';
 import AboutUs from './components/AboutUs';
@@ -342,6 +342,54 @@ function App() {
           &copy; {new Date().getFullYear()} TrexisPlatform Info. All rights reserved.
         </div>
       </footer>
+
+      {/* Floating Telegram Support Button */}
+      <a 
+        href="https://t.me/Morganjim" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          right: '2rem',
+          background: 'linear-gradient(135deg, #0088cc, #00aaff)',
+          color: 'white',
+          width: '60px',
+          height: '60px',
+          borderRadius: '50%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          boxShadow: '0 10px 25px rgba(0, 136, 204, 0.4)',
+          zIndex: 9999,
+          cursor: 'pointer',
+          textDecoration: 'none',
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.transform = 'scale(1.1) translateY(-5px)';
+          e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 136, 204, 0.6)';
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.transform = 'scale(1) translateY(0)';
+          e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 136, 204, 0.4)';
+        }}
+        aria-label="Contact Support on Telegram"
+      >
+        <MessageCircle size={32} />
+        
+        {/* Notification dot */}
+        <span style={{
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          background: '#ef4444',
+          width: '15px',
+          height: '15px',
+          borderRadius: '50%',
+          border: '3px solid #0f172a'
+        }} />
+      </a>
     </div>
   );
 }
