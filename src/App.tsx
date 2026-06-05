@@ -244,7 +244,7 @@ function App() {
         <section id="manager" className="section">
           <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
             <h2 className="section-title">Manager Volume & Bonus Structure</h2>
-            <p className="section-desc">Climb the ranks by building your team. Unlock weekly guaranteed bonuses and percentage-based volume rewards.</p>
+            <p className="section-desc">Climb the ranks by building your team. Unlock monthly salaries and percentage-based volume rewards.</p>
           </motion.div>
 
           <motion.div className="card" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} style={{ padding: 0, overflow: 'hidden' }}>
@@ -256,7 +256,7 @@ function App() {
                     <th>Direct Members</th>
                     <th>Team Members</th>
                     <th>Volume Bonus</th>
-                    <th>Weekly Guaranteed</th>
+                    <th>Monthly Salary</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -302,7 +302,7 @@ function App() {
                 <li>To apply for a promotion and receive corresponding benefits, one must meet the required number of direct and team members for each manager position.</li>
                 <li>If the number of direct members reaches the promotion criteria but the team size does not, the promotion cannot be applied for.</li>
                 <li>Actions such as one person operating multiple accounts for illegal trading are strictly prohibited; any violations will result in the cancellation of investment qualifications.</li>
-                <li>Manager bonuses are distributed on every week.</li>
+                <li>Manager bonuses are distributed every month.</li>
                 <li>Any false rumors's members to promote to manage; reports will lose all benefits and be permanently banned from cooperation.</li>
               </ol>
             </div>
