@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { X } from 'lucide-react';
 
 export default function TelegramWidget() {
-  const [isBubbleVisible, setIsBubbleVisible] = useState(true); // Default true so CSS animation handles delay
+  const [isBubbleVisible] = useState(true); // Default true so CSS animation handles delay
   const [isDismissed, setIsDismissed] = useState(false); // If user manually closes it
 
   // Direct native app redirect URL
@@ -100,8 +100,7 @@ export default function TelegramWidget() {
             cursor: 'pointer',
             textDecoration: 'none',
             boxShadow: '0 8px 24px rgba(42, 171, 238, 0.4)',
-            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-            display: 'block' // Ensure 'a' tag wraps correctly
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease'
           }}
           onMouseOver={(e) => {
             e.currentTarget.style.transform = 'scale(1.05)';
