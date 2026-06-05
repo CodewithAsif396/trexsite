@@ -58,7 +58,7 @@ export default function AboutUs() {
 
       <div className="grid-2" style={{ alignItems: 'center' }}>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-          <h3 style={{ fontSize: 'clamp(1.75rem, 6vw, 2rem)', color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+          <h3 style={{ fontSize: 'clamp(1.5rem, 6vw, 2rem)', color: 'white', marginBottom: '1.5rem', lineHeight: 1.3 }}>
             Your Trusted Partner in <span className="text-gradient">Crypto Wealth Generation</span>
           </h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
