@@ -8,6 +8,7 @@ import {
 import InfoHub from './components/InfoHub';
 import AboutUs from './components/AboutUs';
 import LiveReviews from './components/LiveReviews';
+import FAQSection from './components/FAQSection';
 import './index.css';
 
 function App() {
@@ -88,6 +89,11 @@ function App() {
         </section>
 
         <AboutUs />
+
+        {/* Dedicated FAQ Section placed higher for easy access */}
+        <section id="faq" style={{ position: 'relative', zIndex: 2 }}>
+          <FAQSection />
+        </section>
 
         {/* Features Section */}
         <section id="features" className="section">
