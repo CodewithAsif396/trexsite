@@ -352,45 +352,41 @@ function App() {
           position: 'fixed',
           bottom: '2rem',
           right: '2rem',
-          background: 'linear-gradient(135deg, #0088cc, #00aaff)',
-          color: 'white',
           width: '60px',
           height: '60px',
-          borderRadius: '50%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          boxShadow: '0 10px 25px rgba(0, 136, 204, 0.4)',
           zIndex: 9999,
           cursor: 'pointer',
           textDecoration: 'none',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+          transition: 'transform 0.3s ease, filter 0.3s ease',
+          filter: 'drop-shadow(0 10px 20px rgba(42, 171, 238, 0.4))'
         }}
         onMouseOver={(e) => {
           e.currentTarget.style.transform = 'scale(1.1) translateY(-5px)';
-          e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 136, 204, 0.6)';
+          e.currentTarget.style.filter = 'drop-shadow(0 15px 30px rgba(42, 171, 238, 0.6))';
         }}
         onMouseOut={(e) => {
           e.currentTarget.style.transform = 'scale(1) translateY(0)';
-          e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 136, 204, 0.4)';
+          e.currentTarget.style.filter = 'drop-shadow(0 10px 20px rgba(42, 171, 238, 0.4))';
         }}
         aria-label="Contact Support on Telegram"
       >
-        {/* Telegram Icon SVG */}
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.48 15.84 14.34 15.5 16.12C15.35 16.87 15.08 17.12 14.82 17.15C14.26 17.2 13.82 16.78 13.28 16.43C12.44 15.88 11.96 15.54 11.14 15C10.21 14.4 10.82 14.07 11.36 13.52C11.5 13.38 13.91 11.18 13.96 10.97C13.96 10.94 13.97 10.82 13.89 10.76C13.82 10.7 13.71 10.72 13.63 10.74C13.51 10.77 11.66 11.99 8.04 14.43C7.51 14.79 7.03 14.96 6.6 14.95C6.13 14.94 5.22 14.68 4.54 14.46C3.71 14.19 3.06 14.05 3.12 13.58C3.15 13.34 3.49 13.09 4.13 12.83C8.07 11.11 10.69 10.02 12.01 9.47C15.79 7.9 16.57 7.63 17.08 7.63C17.19 7.63 17.44 7.66 17.61 7.8C17.75 7.92 17.79 8.09 17.81 8.22C17.8 8.26 17.81 8.56 17.79 8.8Z" fill="white"/>
+        {/* Authentic Telegram Icon SVG */}
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#2AABEE"/>
+          <path fillRule="evenodd" clipRule="evenodd" d="M5.42512 11.8703C8.69466 10.4468 10.8781 9.50596 11.9754 9.04771C15.1105 7.73873 15.7621 7.51187 16.1837 7.50436C16.2764 7.5027 16.4839 7.52565 16.619 7.63581C16.7331 7.7288 16.7646 7.85434 16.7801 7.94276C16.7955 8.03118 16.8148 8.23243 16.7994 8.3897C16.6271 10.1843 15.881 14.5752 15.4996 16.6041C15.3382 17.4623 15.0211 17.7508 14.7144 17.779C14.0456 17.8407 13.5323 17.3315 12.8778 16.9029C11.8543 16.2327 11.2751 15.8166 10.2809 15.16C9.13175 14.4011 9.87635 13.9845 10.5317 13.3033C10.7032 13.1249 13.6874 10.4137 13.7451 10.1666C13.7523 10.1356 13.7588 10.0203 13.6914 9.96041C13.6241 9.9005 13.5235 9.92131 13.4568 9.93633C13.3622 9.95764 11.8797 10.9405 8.9288 12.936C8.49605 13.2335 8.10657 13.3776 7.7663 13.3699C7.39116 13.3615 6.6631 13.1557 6.12061 12.9793C5.41165 12.7487 4.86697 12.619 4.91428 12.217C4.93892 12.0076 5.1092 11.7946 5.42512 11.8703Z" fill="white"/>
         </svg>
         
         {/* Notification dot */}
         <span style={{
           position: 'absolute',
-          top: '0',
-          right: '0',
+          top: '-2px',
+          right: '-2px',
           background: '#ef4444',
-          width: '15px',
-          height: '15px',
+          width: '16px',
+          height: '16px',
           borderRadius: '50%',
-          border: '3px solid #0f172a'
+          border: '3px solid #0f172a',
+          boxSizing: 'border-box'
         }} />
       </a>
     </div>
