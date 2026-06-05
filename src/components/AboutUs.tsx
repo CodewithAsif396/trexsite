@@ -149,7 +149,7 @@ export default function AboutUs() {
               <div style={{ background: 'white', padding: '10px', borderRadius: '16px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', position: 'relative', zIndex: 1, border: '1px solid rgba(255,255,255,0.2)' }}>
                 <div style={{ width: '100%', height: '420px', overflow: 'hidden', borderRadius: '8px', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img 
-                    src="/1780649337014.png" 
+                    src="/uk.png" 
                     alt="UK Registration" 
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
@@ -177,7 +177,7 @@ export default function AboutUs() {
               <div style={{ background: 'white', padding: '10px', borderRadius: '16px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', position: 'relative', zIndex: 1, border: '1px solid rgba(255,255,255,0.2)' }}>
                 <div style={{ width: '100%', height: '420px', overflow: 'hidden', borderRadius: '8px', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img 
-                    src="/1780649633044.png" 
+                    src="/USA.png" 
                     alt="USA Registration" 
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
