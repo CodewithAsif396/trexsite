@@ -148,9 +148,14 @@ function App() {
                   <div className="plan-price" style={{ fontSize: '2.5rem', color: plan.popular ? 'var(--accent-gold)' : 'white' }}>${plan.price}+ <span style={{ fontSize: '0.85rem' }}>Deposit</span></div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
                   <span style={{ fontSize: '0.75rem', padding: '4px 10px', background: 'rgba(59,130,246,0.15)', color: 'var(--primary-light)', borderRadius: '20px', fontWeight: 600 }}>{plan.basicSignals} Basic Signals/Day</span>
                   <span style={{ fontSize: '0.75rem', padding: '4px 10px', background: 'rgba(167,139,250,0.15)', color: '#c4b5fd', borderRadius: '20px', fontWeight: 600 }}>+{plan.extraSignals} Premium ({plan.extraDays}D)</span>
+                </div>
+
+                <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: '8px', padding: '0.75rem', marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}><strong style={{color:'var(--primary-light)'}}>BASIC:</strong> 3PM, 6PM, 7PM</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}><strong style={{color:'#c4b5fd'}}>EXTRA:</strong> 8PM</div>
                 </div>
 
                 <div className="info-list" style={{ marginTop: 'auto', gap: '0.75rem' }}>
