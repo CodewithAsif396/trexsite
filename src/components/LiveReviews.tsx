@@ -92,7 +92,8 @@ export default function LiveReviews() {
           animation-play-state: paused;
         }
         .review-card {
-          width: 350px;
+          width: 300px;
+          max-width: 85vw;
           flex-shrink: 0;
           background: rgba(255,255,255,0.02);
           border: 1px solid rgba(255,255,255,0.06);
@@ -109,7 +110,7 @@ export default function LiveReviews() {
       `}</style>
       
       <div style={{ textAlign: 'center', marginBottom: '4rem', padding: '0 1rem' }}>
-        <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '1rem', fontWeight: 'bold' }}>
+        <h2 style={{ fontSize: 'clamp(1.75rem, 6vw, 2.5rem)', color: 'white', marginBottom: '1rem', fontWeight: 'bold' }}>
           Real-Time <span className="text-gradient">Global Activity</span>
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -120,8 +121,8 @@ export default function LiveReviews() {
 
       <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         {/* Gradients to fade edges */}
-        <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '200px', background: 'linear-gradient(90deg, #0f172a 0%, transparent 100%)', zIndex: 2, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '200px', background: 'linear-gradient(270deg, #0f172a 0%, transparent 100%)', zIndex: 2, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '15%', background: 'linear-gradient(90deg, #0f172a 0%, transparent 100%)', zIndex: 2, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '15%', background: 'linear-gradient(270deg, #0f172a 0%, transparent 100%)', zIndex: 2, pointerEvents: 'none' }}></div>
 
         {/* Marquee Track: duplicate the reviews array to create seamless loop */}
         <div className="marquee-track">

@@ -47,7 +47,7 @@ export default function AboutUs() {
 
       <div className="grid-2" style={{ alignItems: 'center' }}>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-          <h3 style={{ fontSize: '2rem', color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+          <h3 style={{ fontSize: 'clamp(1.75rem, 6vw, 2rem)', color: 'white', marginBottom: '1.5rem', lineHeight: 1.2 }}>
             Your Trusted Partner in <span className="text-gradient">Crypto Wealth Generation</span>
           </h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
@@ -57,7 +57,7 @@ export default function AboutUs() {
             Unlike traditional platforms, we focus strictly on <strong>information and precision</strong>. Our expert analysts monitor the markets 24/7 to deliver up to 2% daily performance targets, while our community structure rewards you with steady salaries and event bonuses for sharing the success.
           </p>
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <ShieldCheck className="text-green" size={24} />
               <span style={{ color: 'white', fontWeight: 600 }}>Secure & Verified</span>
@@ -129,12 +129,12 @@ export default function AboutUs() {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '6px 16px', borderRadius: '30px', color: '#10b981', fontWeight: 'bold', fontSize: '0.85rem', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
             <ShieldCheck size={16} /> Fully Regulated & Verified
           </div>
-          <h3 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '1rem', fontWeight: 800 }}>Official <span className="text-gradient">Registrations</span></h3>
+          <h3 style={{ fontSize: 'clamp(1.75rem, 6vw, 2.5rem)', color: 'white', marginBottom: '1rem', fontWeight: 800 }}>Official <span className="text-gradient">Registrations</span></h3>
           <p style={{ color: 'var(--text-muted)', marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 4rem auto', fontSize: '1.1rem' }}>
             We operate with absolute transparency. Trexis Platform is legally incorporated in the UK and registered in the USA.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '3rem', maxWidth: '900px', margin: '0 auto' }}>
             
             {/* UK CERT */}
             <motion.div 

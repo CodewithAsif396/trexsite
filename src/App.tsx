@@ -198,7 +198,7 @@ function App() {
               </div>
               <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '12px', border: '1px dashed rgba(16,185,129,0.3)', marginBottom: '1.5rem' }}>
                 <p style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Invite a <span className="text-green font-bold">500 USDT+</span> member</p>
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--accent-green)', lineHeight: 1 }}>
+                <div style={{ fontSize: 'clamp(1.75rem, 6vw, 2.5rem)', fontWeight: 800, color: 'var(--accent-green)', lineHeight: 1 }}>
                   Up to $30 <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 400 }}>reimbursement</span>
                 </div>
               </div>
