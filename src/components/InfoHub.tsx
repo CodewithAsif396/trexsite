@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, BookOpen, Wallet, Activity, ShieldAlert, Award, FileText, HelpCircle, LifeBuoy, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, BookOpen, Wallet, Activity, ShieldAlert, Award, FileText, HelpCircle, LifeBuoy, AlertTriangle } from 'lucide-react';
 
 export default function InfoHub() {
   const [activeTab, setActiveTab] = useState('getting-started');
