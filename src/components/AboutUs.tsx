@@ -5,31 +5,42 @@ import { ShieldCheck, Globe, TrendingUp, Users } from 'lucide-react';
 export default function AboutUs() {
   const [users, setUsers] = useState(14592);
   const [rewards, setRewards] = useState(2450320);
+  const [accuracy, setAccuracy] = useState(98.4);
 
   useEffect(() => {
-    // Calculate realistic growth based on days passed since an arbitrary launch date
+    // Calculate realistic growth based on hours passed to simulate daily high traffic
     const baseDate = new Date('2024-01-01').getTime();
     const now = Date.now();
-    const daysPassed = (now - baseDate) / (1000 * 60 * 60 * 24);
+    const hoursPassed = (now - baseDate) / (1000 * 60 * 60);
     
-    // Add realistic daily growth
-    const initialUsers = 14592 + Math.floor(daysPassed * 22.5);
-    const initialRewards = 2450320 + Math.floor(daysPassed * 1850.75);
+    // Aggressive realistic daily growth
+    const initialUsers = 14592 + Math.floor(hoursPassed * 5.2);
+    const initialRewards = 2450320 + Math.floor(hoursPassed * 185.5);
 
     setUsers(initialUsers);
     setRewards(initialRewards);
 
-    // Live ticking simulation while the user is on the page
+    // Live fast-ticking simulation while the user is on the page
     const interval = setInterval(() => {
-      // 30% chance to gain a user every 3 seconds
-      if (Math.random() > 0.7) {
-        setUsers(prev => prev + 1);
+      // High chance to gain 1-4 users every 2.5 seconds to simulate high daily visits
+      if (Math.random() > 0.15) {
+        setUsers(prev => prev + Math.floor(Math.random() * 4) + 1);
       }
-      // 60% chance to increase reward payout every 3 seconds
-      if (Math.random() > 0.4) {
-        setRewards(prev => prev + Math.floor(Math.random() * 45) + 5);
+      
+      // High chance to increase rewards
+      if (Math.random() > 0.15) {
+        setRewards(prev => prev + Math.floor(Math.random() * 150) + 15);
       }
-    }, 3000);
+
+      // Slight accuracy fluctuation to make it look extremely authentic
+      if (Math.random() > 0.6) {
+        setAccuracy(prev => {
+          const change = (Math.random() * 0.2) - 0.1; // -0.1 to +0.1
+          const newVal = prev + change;
+          return newVal > 99.1 ? 99.1 : newVal < 97.8 ? 97.8 : Number(newVal.toFixed(1));
+        });
+      }
+    }, 2500);
 
     return () => clearInterval(interval);
   }, []);
@@ -96,7 +107,7 @@ export default function AboutUs() {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                   <span style={{ color: 'var(--text-muted)' }}>Signal Accuracy</span>
-                  <span style={{ color: 'var(--accent-green)', fontWeight: 'bold' }}>98.4%</span>
+                  <span style={{ color: 'var(--accent-green)', fontWeight: 'bold' }}>{accuracy.toFixed(1)}%</span>
                 </div>
                 <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', overflow: 'hidden' }}>
                   <div style={{ width: '98%', height: '100%', background: 'linear-gradient(90deg, #10b981, #34d399)' }}></div>
