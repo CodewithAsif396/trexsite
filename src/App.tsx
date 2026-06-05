@@ -41,7 +41,7 @@ function App() {
       <header className="header">
         <div className="logo-container">
           <img src="/logo.png" alt="Trexis Logo" style={{ width: '45px', height: '45px', objectFit: 'contain' }} />
-          <span>TrexisPlatform</span>
+          <span>TrexisPlatorm</span>
         </div>
         
         <div className="nav-links">
@@ -82,7 +82,7 @@ function App() {
             <div className="hero-badge">Official Information Portal</div>
             <h1 className="hero-title">
               Your Complete Guide to <br />
-              <span>TrexisPlatform</span>
+              <span>TrexisPlatorm</span>
             </h1>
             <p className="hero-desc">
               Find every detail, rule, and reward structure right here. Everything you need to know about our premium signal tiers, referral rewards, and manager payouts in one place.
@@ -330,7 +330,7 @@ function App() {
       <footer className="footer">
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
           <div className="logo-icon" style={{ width: '30px', height: '30px', fontSize: '1.2rem' }}>T</div>
-          <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white' }}>TrexisPlatform Info</span>
+          <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white' }}>TrexisPlatorm Info</span>
         </div>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '500px', margin: '0 auto 1.5rem auto' }}>
           Your ultimate informational guide to the Trexis platform. We are here to answer every question and provide full transparency on all our plans and rewards.
@@ -341,7 +341,7 @@ function App() {
           <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 1rem', borderRadius: '20px', fontSize: '0.85rem', color: 'var(--text-main)', border: '1px solid rgba(255,255,255,0.1)' }}>🇦🇪 Registered in UAE</span>
         </div>
         <div style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>
-          &copy; {new Date().getFullYear()} TrexisPlatform Info. All rights reserved.
+          &copy; {new Date().getFullYear()} TrexisPlatorm Info. All rights reserved.
         </div>
       </footer>
       </div>
