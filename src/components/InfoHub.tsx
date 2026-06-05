@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, BookOpen, Wallet, Activity, ShieldAlert, Award, FileText, HelpCircle, LifeBuoy, AlertTriangle, ChevronRight } from 'lucide-react';
+import { BookOpen, Wallet, Activity, ShieldAlert, Award, FileText, LifeBuoy, AlertTriangle, ChevronRight } from 'lucide-react';
 
 export default function InfoHub() {
   const [activeTab, setActiveTab] = useState('getting-started');
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const tabs = [
     { id: 'getting-started', icon: <BookOpen size={18} />, label: 'Getting Started' },
