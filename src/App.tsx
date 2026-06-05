@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Trophy, Gift, Users, Zap, Clock, ArrowUpRight, ChefHat, 
-  CheckCircle2, ShieldCheck, Crown, Menu, X, ChevronDown, 
-  Activity, Lock, RefreshCw, ChevronRight 
+  Trophy, Users, Clock, ChefHat, 
+  CheckCircle2, ShieldCheck, Crown, Menu, X, 
+  Activity, Lock, RefreshCw 
 } from 'lucide-react';
 import InfoHub from './components/InfoHub';
 import AboutUs from './components/AboutUs';
