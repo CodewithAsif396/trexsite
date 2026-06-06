@@ -1,49 +1,7 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Globe, TrendingUp, Users } from 'lucide-react';
 
 export default function AboutUs() {
-  const [users, setUsers] = useState(14592);
-  const [rewards, setRewards] = useState(2450320);
-  const [accuracy, setAccuracy] = useState(98.4);
-
-  useEffect(() => {
-    // Calculate realistic growth based on hours passed to simulate daily high traffic
-    const baseDate = new Date('2024-01-01').getTime();
-    const now = Date.now();
-    const hoursPassed = (now - baseDate) / (1000 * 60 * 60);
-    
-    // Aggressive realistic daily growth
-    const initialUsers = 14592 + Math.floor(hoursPassed * 5.2);
-    const initialRewards = 2450320 + Math.floor(hoursPassed * 185.5);
-
-    setUsers(initialUsers);
-    setRewards(initialRewards);
-
-    // Live fast-ticking simulation while the user is on the page
-    const interval = setInterval(() => {
-      // High chance to gain 1-4 users every 2.5 seconds to simulate high daily visits
-      if (Math.random() > 0.15) {
-        setUsers(prev => prev + Math.floor(Math.random() * 4) + 1);
-      }
-      
-      // High chance to increase rewards
-      if (Math.random() > 0.15) {
-        setRewards(prev => prev + Math.floor(Math.random() * 150) + 15);
-      }
-
-      // Slight accuracy fluctuation to make it look extremely authentic
-      if (Math.random() > 0.6) {
-        setAccuracy(prev => {
-          const change = (Math.random() * 0.2) - 0.1; // -0.1 to +0.1
-          const newVal = prev + change;
-          return newVal > 99.1 ? 99.1 : newVal < 97.8 ? 97.8 : Number(newVal.toFixed(1));
-        });
-      }
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, []);
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -56,8 +14,8 @@ export default function AboutUs() {
         <p className="section-desc">Building trust through transparency, consistency, and professional trading excellence since our inception.</p>
       </motion.div>
 
-      <div className="grid-2" style={{ alignItems: 'center' }}>
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+      <div style={{ alignItems: 'center', maxWidth: '800px', margin: '0 auto' }}>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} style={{ textAlign: 'center' }}>
           <h3 style={{ fontSize: 'clamp(1.5rem, 6vw, 2rem)', color: 'white', marginBottom: '1.5rem', lineHeight: 1.3 }}>
             Your Trusted Partner in <span className="text-gradient">Crypto Wealth Generation</span>
           </h3>
@@ -68,70 +26,27 @@ export default function AboutUs() {
             Unlike traditional platforms, we focus strictly on <strong>information and precision</strong>. Our expert analysts monitor the markets 24/7 to deliver up to 2% daily performance targets, while our community structure rewards you with steady salaries and event bonuses for sharing the success.
           </p>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', justifyContent: 'center', maxWidth: '600px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
               <ShieldCheck className="text-green" size={24} />
               <span style={{ color: 'white', fontWeight: 600 }}>Secure & Verified</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
               <Globe className="text-blue" size={24} />
               <span style={{ color: 'white', fontWeight: 600 }}>Global Presence</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
               <TrendingUp className="text-gold" size={24} />
               <span style={{ color: 'white', fontWeight: 600 }}>High Accuracy</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
               <Users className="text-purple" size={24} />
-              <span style={{ color: 'white', fontWeight: 600 }}>10K+ Community</span>
+              <span style={{ color: 'white', fontWeight: 600 }}>50K+ Community</span>
             </div>
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ position: 'relative' }}>
-          {/* Glassmorphic stats card */}
-          <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '24px', padding: '2.5rem', backdropFilter: 'blur(10px)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem' }}>Platform Statistics</h4>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>Registered Users</span>
-                  <span style={{ color: 'white', fontWeight: 'bold' }}>{users.toLocaleString()}</span>
-                </div>
-                <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', overflow: 'hidden' }}>
-                  <div style={{ width: '85%', height: '100%', background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }}></div>
-                </div>
-              </div>
 
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>Signal Accuracy</span>
-                  <span style={{ color: 'var(--accent-green)', fontWeight: 'bold' }}>{accuracy.toFixed(1)}%</span>
-                </div>
-                <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', overflow: 'hidden' }}>
-                  <div style={{ width: '98%', height: '100%', background: 'linear-gradient(90deg, #10b981, #34d399)' }}></div>
-                </div>
-              </div>
-
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>Total Rewards Paid</span>
-                  <span style={{ color: 'var(--accent-gold)', fontWeight: 'bold' }}>${rewards.toLocaleString()}</span>
-                </div>
-                <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', overflow: 'hidden' }}>
-                  <div style={{ width: '92%', height: '100%', background: 'linear-gradient(90deg, #f59e0b, #fbbf24)' }}></div>
-                </div>
-              </div>
-            </div>
-            
-            <div style={{ marginTop: '2.5rem', textAlign: 'center', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-               <span style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '20px', fontSize: '0.8rem', color: 'var(--text-muted)', border: '1px solid rgba(255,255,255,0.1)' }}>🇺🇸 USA Registered</span>
-               <span style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '20px', fontSize: '0.8rem', color: 'var(--text-muted)', border: '1px solid rgba(255,255,255,0.1)' }}>🇬🇧 UK Registered</span>
-               <span style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '20px', fontSize: '0.8rem', color: 'var(--text-muted)', border: '1px solid rgba(255,255,255,0.1)' }}>🇦🇪 UAE Registered</span>
-            </div>
-          </div>
-        </motion.div>
       </div>
       <div style={{ marginTop: '6rem', position: 'relative' }}>
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100vw', height: '100%', background: 'radial-gradient(ellipse at center, rgba(16, 185, 129, 0.05) 0%, transparent 70%)', zIndex: 0, pointerEvents: 'none' }} />

@@ -10,10 +10,12 @@ import AboutUs from './components/AboutUs';
 import LiveReviews from './components/LiveReviews';
 import FAQSection from './components/FAQSection';
 import TelegramWidget from './components/TelegramWidget';
+import VideoGuidance from './components/VideoGuidance';
 import './index.css';
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<'home' | 'videos'>('home');
 
   // Animation variants
   const fadeIn = {
@@ -45,11 +47,12 @@ function App() {
         </div>
         
         <div className="nav-links">
-          <a className="nav-link" href="#features">Features</a>
-          <a className="nav-link" href="#plans">Signal Plans</a>
-          <a className="nav-link" href="#rewards">Rewards</a>
-          <a className="nav-link" href="#manager">Manager</a>
-          <a className="nav-link" href="#faq">FAQ</a>
+          <a className="nav-link" href="#features" onClick={() => setCurrentPage('home')}>Features</a>
+          <a className="nav-link" href="#plans" onClick={() => setCurrentPage('home')}>Signal Plans</a>
+          <a className="nav-link" href="#rewards" onClick={() => setCurrentPage('home')}>Rewards</a>
+          <a className="nav-link" href="#manager" onClick={() => setCurrentPage('home')}>Manager</a>
+          <a className="nav-link" href="#faq" onClick={() => setCurrentPage('home')}>FAQ</a>
+          <button className="nav-link" style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer' }} onClick={() => setCurrentPage('videos')}>Video Guidance</button>
         </div>
 
         <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -66,16 +69,21 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
           >
-            <a className="nav-link" href="#features" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-            <a className="nav-link" href="#plans" onClick={() => setIsMobileMenuOpen(false)}>Signal Plans</a>
-            <a className="nav-link" href="#rewards" onClick={() => setIsMobileMenuOpen(false)}>Rewards</a>
-            <a className="nav-link" href="#manager" onClick={() => setIsMobileMenuOpen(false)}>Manager Structure</a>
-            <a className="nav-link" href="#faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+            <a className="nav-link" href="#features" onClick={() => { setIsMobileMenuOpen(false); setCurrentPage('home'); }}>Features</a>
+            <a className="nav-link" href="#plans" onClick={() => { setIsMobileMenuOpen(false); setCurrentPage('home'); }}>Signal Plans</a>
+            <a className="nav-link" href="#rewards" onClick={() => { setIsMobileMenuOpen(false); setCurrentPage('home'); }}>Rewards</a>
+            <a className="nav-link" href="#manager" onClick={() => { setIsMobileMenuOpen(false); setCurrentPage('home'); }}>Manager Structure</a>
+            <a className="nav-link" href="#faq" onClick={() => { setIsMobileMenuOpen(false); setCurrentPage('home'); }}>FAQ</a>
+            <button className="nav-link" style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', textAlign: 'left', padding: '10px 0', width: '100%' }} onClick={() => { setIsMobileMenuOpen(false); setCurrentPage('videos'); }}>Video Guidance</button>
           </motion.div>
         )}
       </AnimatePresence>
 
       <main className="main-content">
+        {currentPage === 'videos' ? (
+          <VideoGuidance />
+        ) : (
+          <>
         {/* Hero Section */}
         <section className="hero">
           <motion.div initial="hidden" animate="visible" variants={fadeIn}>
@@ -324,6 +332,8 @@ function App() {
           <InfoHub />
         </section>
 
+          </>
+        )}
       </main>
 
       {/* Footer */}
