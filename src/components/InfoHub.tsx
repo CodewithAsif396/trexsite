@@ -172,66 +172,71 @@ export default function InfoHub() {
           {activeTab === 'rewards' && (
             <motion.div key="rewards" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: 0.3 }}>
               <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '1.5rem', color: 'white', marginBottom: '1.5rem' }}>
-                <Award className="text-gold" /> 6. Referral & Reward Program
+                <Award className="text-gold" /> 6. Account Plans & Reward Matrix
               </h3>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Our comprehensive reward matrix incentivizes network growth across multiple investment tiers.</p>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Choose an account plan that fits your goals. Our comprehensive reward matrix incentivizes network growth across multiple investment tiers.</p>
               
-              <div className="table-container" style={{ overflowX: 'auto' }}>
-                <table className="custom-table" style={{ width: '100%', minWidth: '800px' }}>
-                  <thead>
-                    <tr>
-                      <th>Package Tier</th>
-                      <th>Welcome Bonus</th>
-                      <th>Referral Bonus</th>
-                      <th>Team Event Bonus (3 Members)</th>
-                      <th>Monthly Salary (Maintained)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td style={{ fontWeight: 'bold', color: 'white' }}>500 USDT</td>
-                      <td>15 USDT</td>
-                      <td>25 USDT</td>
-                      <td>80 USDT</td>
-                      <td style={{ color: 'var(--accent-green)' }}>100 USDT</td>
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 'bold', color: 'white' }}>800 USDT</td>
-                      <td>30 USDT</td>
-                      <td>50 USDT</td>
-                      <td>200 USDT</td>
-                      <td style={{ color: 'var(--accent-green)' }}>200 USDT</td>
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 'bold', color: 'white' }}>1000 USDT</td>
-                      <td>50 USDT</td>
-                      <td>80 USDT</td>
-                      <td>300 USDT</td>
-                      <td style={{ color: 'var(--accent-green)' }}>300 USDT</td>
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 'bold', color: 'white' }}>1500 USDT</td>
-                      <td>75 USDT</td>
-                      <td>120 USDT</td>
-                      <td>500 USDT</td>
-                      <td style={{ color: 'var(--accent-green)' }}>500 USDT</td>
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 'bold', color: 'white' }}>2000 USDT</td>
-                      <td>100 USDT</td>
-                      <td>160 USDT</td>
-                      <td>700 USDT</td>
-                      <td style={{ color: 'var(--accent-green)' }}>700 USDT</td>
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: 'bold', color: 'white' }}>3000 USDT</td>
-                      <td>150 USDT</td>
-                      <td>250 USDT</td>
-                      <td>1000 USDT</td>
-                      <td style={{ color: 'var(--accent-green)' }}>1000 USDT</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+                {[
+                  { name: 'STANDARD', price: '$500+', signals: '2 Basic Signals / Day', welcome: '$20', referral: '$20', team: '5 Active Members = $100', salary: '$75', color: '#3b82f6' },
+                  { name: 'PRO', price: '$800+', signals: '3 Basic Signals / Day', welcome: '$25', referral: '$25', team: '7 Active Members = $180', salary: '$150', color: '#8b5cf6' },
+                  { name: 'ELITE', price: '$1000+', signals: '3 Basic Signals / Day', welcome: '$30', referral: '$30', team: '10 Active Members = $300', salary: '$250', color: '#f59e0b' },
+                  { name: 'VIP', price: '$1500+', signals: '3 Basic Signals / Day', welcome: '$40', referral: '$40', team: '12 Active Members = $500', salary: '$400', color: '#ec4899' },
+                  { name: 'MASTER', price: '$2000+', signals: '3 Basic Signals / Day', welcome: '$60', referral: '$60', team: '15 Active Members = $800', salary: '$600', color: '#10b981' },
+                  { name: 'LEGEND', price: '$3000+', signals: '3 Basic Signals / Day', welcome: '$100', referral: '$100', team: '20 Active Members = $1500', salary: '$1000', color: '#eab308' },
+                ].map((tier, idx) => (
+                  <div key={idx} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${tier.color}30`, borderRadius: '16px', overflow: 'hidden', transition: 'transform 0.3s' }}>
+                    <div style={{ background: `${tier.color}20`, padding: '1.5rem', borderBottom: `1px solid ${tier.color}30`, textAlign: 'center' }}>
+                      <h4 style={{ color: tier.color, margin: 0, fontSize: '1.25rem', fontWeight: 700, letterSpacing: '1px' }}>{tier.name}</h4>
+                      <div style={{ color: 'white', fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem' }}>{tier.price}</div>
+                    </div>
+                    <div style={{ padding: '1.5rem' }}>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+                        <li style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--text-muted)' }}>Signals:</span> <strong>{tier.signals}</strong>
+                        </li>
+                        <li style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--text-muted)' }}>Welcome Bonus:</span> <strong>{tier.welcome}</strong>
+                        </li>
+                        <li style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--text-muted)' }}>Referral Bonus:</span> <strong>{tier.referral}</strong>
+                        </li>
+                        <li style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-main)', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '0.875rem' }}>
+                          <span style={{ color: 'var(--text-muted)' }}>Team Event:</span> <strong style={{ color: '#60a5fa' }}>{tier.team}</strong>
+                        </li>
+                        <li style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-main)', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '0.875rem' }}>
+                          <span style={{ color: 'var(--text-muted)' }}>Monthly Salary:</span> <strong style={{ color: 'var(--accent-green)' }}>{tier.salary}</strong>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.2)', padding: '2rem', borderRadius: '12px' }}>
+                <h4 style={{ color: '#60a5fa', marginBottom: '1rem', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Award size={20} /> Reward Rules & Examples
+                </h4>
+                <ul style={{ color: 'var(--text-main)', display: 'flex', flexDirection: 'column', gap: '0.75rem', paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
+                  <li><strong>Welcome Bonus</strong> is awarded according to the user's own deposit plan.</li>
+                  <li><strong>Referral Bonus</strong> is awarded according to the deposit plan of the referred user.</li>
+                </ul>
+                <h5 style={{ color: 'white', marginBottom: '1rem' }}>Examples (Referral Bonus):</h5>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.75rem' }}>
+                  {[
+                    { ref: '$500', earn: '$20' },
+                    { ref: '$800', earn: '$25' },
+                    { ref: '$1000', earn: '$30' },
+                    { ref: '$1500', earn: '$40' },
+                    { ref: '$2000', earn: '$60' },
+                    { ref: '$3000', earn: '$100' },
+                  ].map((ex, i) => (
+                    <div key={i} style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '8px', color: 'var(--text-muted)', borderLeft: '3px solid #60a5fa', display: 'flex', justifyContent: 'space-between' }}>
+                      <span>Refer <strong style={{color:'white'}}>{ex.ref}</strong> User</span>
+                      <span style={{ color: 'var(--accent-green)', fontWeight: 'bold' }}>Earn {ex.earn}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}

@@ -140,12 +140,12 @@ function App() {
 
           <motion.div className="grid-3" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {[
-              { price: 500, name: "Standard Account", welcome: 15, referral: 25, team: 80, salary: 100, basicSignals: 2, extraSignals: 2, extraDays: 1, popular: false, color: '#cbd5e1', rgb: '203, 213, 225' },
-              { price: 800, name: "Pro Account", welcome: 30, referral: 50, team: 200, salary: 200, basicSignals: 3, extraSignals: 2, extraDays: 2, popular: true, color: '#fbbf24', rgb: '251, 191, 36' },
-              { price: 1000, name: "Elite Account", welcome: 50, referral: 80, team: 300, salary: 300, basicSignals: 4, extraSignals: 3, extraDays: 3, popular: false, color: '#a855f7', rgb: '168, 85, 247' },
-              { price: 1500, name: "VIP Account", welcome: 75, referral: 120, team: 500, salary: 500, basicSignals: 5, extraSignals: 3, extraDays: 5, popular: false, color: '#ef4444', rgb: '239, 68, 68' },
-              { price: 2000, name: "Master Account", welcome: 100, referral: 160, team: 700, salary: 700, basicSignals: 6, extraSignals: 4, extraDays: 7, popular: false, color: '#10b981', rgb: '16, 185, 129' },
-              { price: 3000, name: "Legend Account", welcome: 150, referral: 250, team: 1000, salary: 1000, basicSignals: 8, extraSignals: 4, extraDays: 14, popular: false, color: '#06b6d4', rgb: '6, 182, 212' }
+              { price: 500, name: "Standard Account", welcome: 20, referral: 20, teamDesc: '5 Active Members', teamVal: 100, salary: 75, basicSignals: 2, popular: false, color: '#cbd5e1', rgb: '203, 213, 225' },
+              { price: 800, name: "Pro Account", welcome: 25, referral: 25, teamDesc: '7 Active Members', teamVal: 180, salary: 150, basicSignals: 3, popular: true, color: '#fbbf24', rgb: '251, 191, 36' },
+              { price: 1000, name: "Elite Account", welcome: 30, referral: 30, teamDesc: '10 Active Members', teamVal: 300, salary: 250, basicSignals: 3, popular: false, color: '#a855f7', rgb: '168, 85, 247' },
+              { price: 1500, name: "VIP Account", welcome: 40, referral: 40, teamDesc: '12 Active Members', teamVal: 500, salary: 400, basicSignals: 3, popular: false, color: '#ef4444', rgb: '239, 68, 68' },
+              { price: 2000, name: "Master Account", welcome: 50, referral: 50, teamDesc: '15 Active Members', teamVal: 750, salary: 600, basicSignals: 3, popular: false, color: '#10b981', rgb: '16, 185, 129' },
+              { price: 3000, name: "Legend Account", welcome: 100, referral: 100, teamDesc: '20 Active Members', teamVal: 1200, salary: 1000, basicSignals: 3, popular: false, color: '#06b6d4', rgb: '6, 182, 212' }
             ].map((plan, i) => (
               <motion.div key={i} className="card plan-card" variants={fadeIn} style={{ padding: '1.5rem', borderColor: `rgba(${plan.rgb}, 0.4)`, background: `rgba(${plan.rgb}, 0.05)` }}>
                 {plan.popular && <div className="badge" style={{ background: `rgba(${plan.rgb}, 0.15)`, color: plan.color, border: `1px solid rgba(${plan.rgb}, 0.3)` }}>Most Popular</div>}
@@ -164,20 +164,14 @@ function App() {
                   <div className="plan-price" style={{ fontSize: '2.5rem', color: plan.color }}>${plan.price}+ <span style={{ fontSize: '0.85rem' }}>Deposit</span></div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
                   <span style={{ fontSize: '0.75rem', padding: '4px 10px', background: 'rgba(59,130,246,0.15)', color: 'var(--primary-light)', borderRadius: '20px', fontWeight: 600 }}>{plan.basicSignals} Basic Signals/Day</span>
-                  <span style={{ fontSize: '0.75rem', padding: '4px 10px', background: 'rgba(167,139,250,0.15)', color: '#c4b5fd', borderRadius: '20px', fontWeight: 600 }}>+{plan.extraSignals} Premium ({plan.extraDays}D)</span>
-                </div>
-
-                <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: '8px', padding: '0.75rem', marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}><strong style={{color:'var(--primary-light)'}}>BASIC:</strong> 3PM, 6PM, 7PM</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}><strong style={{color:'#c4b5fd'}}>EXTRA:</strong> 8PM</div>
                 </div>
 
                 <div className="info-list" style={{ marginTop: 'auto', gap: '0.75rem' }}>
                   <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Welcome Bonus:</strong> ${plan.welcome}</div></div>
-                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Referral Reward:</strong> ${plan.referral}</div></div>
-                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Team Event (3 Members):</strong> ${plan.team}</div></div>
+                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Referral Bonus:</strong> ${plan.referral}</div></div>
+                  <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Team Event:</strong> {plan.teamDesc} = ${plan.teamVal}</div></div>
                   <div className="info-item" style={{ fontSize: '0.85rem' }}><CheckCircle2 size={16} color={plan.color} style={{flexShrink:0}} /><div><strong style={{color: plan.color}}>Monthly Salary:</strong> ${plan.salary}</div></div>
                 </div>
               </motion.div>
@@ -208,19 +202,30 @@ function App() {
                   <ChefHat size={28} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.5rem', color: 'white' }}>Meal Subsidy</h3>
+                  <h3 style={{ fontSize: '1.5rem', color: 'white' }}>Meal & Event Subsidy</h3>
                   <p style={{ color: 'var(--text-muted)' }}>Reward yourself for growing the community.</p>
                 </div>
               </div>
               <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '12px', border: '1px dashed rgba(16,185,129,0.3)', marginBottom: '1.5rem' }}>
-                <p style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Invite a <span className="text-green font-bold">500 USDT+</span> member</p>
-                <div style={{ fontSize: 'clamp(1.75rem, 6vw, 2.5rem)', fontWeight: 800, color: 'var(--accent-green)', lineHeight: 1 }}>
-                  Up to $30 <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 400 }}>reimbursement</span>
+                <div style={{ marginBottom: '1rem' }}>
+                  <p style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Single Member Addition</p>
+                  <div style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: 800, color: 'var(--accent-green)', lineHeight: 1 }}>
+                    $10 <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 400 }}>meal subsidy</span>
+                  </div>
+                </div>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1rem' }}>
+                  <p style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Consistent Performers</p>
+                  <div style={{ fontSize: '1rem', color: '#10b981', fontWeight: 600 }}>
+                    Loyalty Rewards & Big Event Subsidies
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+                    Show dedication by adding members regularly to unlock premium subsidies for major events and loyalty bonuses.
+                  </p>
                 </div>
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', display: 'flex', gap: '0.5rem' }}>
                 <Clock size={16} style={{ flexShrink: 0, marginTop: '2px' }} />
-                To prevent extravagant spending, you must apply with a valid meal receipt and 1-3 group photos.
+                To prevent extravagant spending, you must apply with a valid receipt and 1-3 group photos.
               </p>
             </motion.div>
 
@@ -243,12 +248,12 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr><td className="text-gradient">$500</td><td>25 USDT</td><td>15 USDT</td></tr>
-                    <tr><td className="text-gradient">$800</td><td>70 USDT</td><td>40 USDT</td></tr>
-                    <tr><td className="text-gradient">$1000</td><td>160 USDT</td><td>120 USDT</td></tr>
-                    <tr><td className="text-gradient">$1500</td><td>330 USDT</td><td>210 USDT</td></tr>
-                    <tr><td className="text-gradient">$2000</td><td>520 USDT</td><td>400 USDT</td></tr>
-                    <tr><td className="text-gradient">$3000</td><td>800 USDT</td><td>640 USDT</td></tr>
+                    <tr><td className="text-gradient">$500</td><td>20 USDT</td><td>20 USDT</td></tr>
+                    <tr><td className="text-gradient">$800</td><td>25 USDT</td><td>25 USDT</td></tr>
+                    <tr><td className="text-gradient">$1000</td><td>30 USDT</td><td>30 USDT</td></tr>
+                    <tr><td className="text-gradient">$1500</td><td>40 USDT</td><td>40 USDT</td></tr>
+                    <tr><td className="text-gradient">$2000</td><td>50 USDT</td><td>50 USDT</td></tr>
+                    <tr><td className="text-gradient">$3000</td><td>100 USDT</td><td>100 USDT</td></tr>
                   </tbody>
                 </table>
               </div>
